@@ -1,33 +1,47 @@
 <?php
+// Démarre une nouvelle session ou reprend une session existante
 session_start();
+$page = 2;
+
+// Redirection si l'utilisateur est connecté ou non
 include 'includes/connexion.php';
+
+/**
+ * UTILISATEUR NON CONNECTE
+**/
 if(!isset($_SESSION['id']))
 {
   header('Location: http://localhost/gsb/acces/');
   exit();
 }
+/** 
+ * UTILISATEUR CONNECTE
+ **/
 else {
-    $idV = $_SESSION['id'];
   include 'includes/variables.php';
-  include 'includes/insert.php';
-  $page = 2;
+  include 'includes/functions.php';
+
+  $functions = new ConnexionBase();
+}
+
+// Bouton pressé, on joue la fonction d'insertion en base (Hors Forfait)
 if(isset($_POST['ajouter']))
   {
-    
     $libelle = $_POST['libelle'];
     $date = $_POST['date'];
     $montant = $_POST['montant'];
-  insert_horsf($idV, $libelle, $date, $montant);
-  }
-if(isset($_POST['modifier']))
+  $functions->insert_horsf($_SESSION['id'], date("F"), $libelle, $date, $montant);
+}
+
+// Bouton pressé, on joue la fonction d'insertion en base (Ligne Frais)
+/**if(isset($_POST['modifier']))
   {
     $etape = $_POST['etape'];
     $km = $_POST['km'];
     $nuit = $_POST['nuit'];
     $repas = $_POST['repas'];
   insert_lignefrais($idV, $etape, $km, $nuit, $repas);
-  }
-}
+  }**/
 
 ?>
 <!DOCTYPE html>
