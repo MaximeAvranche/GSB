@@ -27,10 +27,7 @@ else {
 // Bouton pressé, on joue la fonction d'insertion en base (Hors Forfait)
 if(isset($_POST['ajouter']))
   {
-    $libelle = $_POST['libelle'];
-    $date = $_POST['date'];
-    $montant = $_POST['montant'];
-  $functions->insert_horsf($_SESSION['id'], date("F"), $libelle, $date, $montant);
+  $functions->verifFicheFrais($_SESSION['id'], date("F"));
 }
 
 // Bouton pressé, on joue la fonction d'insertion en base (Ligne Frais)

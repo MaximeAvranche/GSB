@@ -1,4 +1,4 @@
-<?php
+ <?php
 /**
  * Création d'une class qui permet la connexion à la base de données
  */
@@ -18,9 +18,9 @@ class ConnexionBase
 
 
 // Insertion d'une ligne Frais Hors Forfait
-function insert_horsf($id, $mois, $libelle, $date, $montant) {
+//*function insert_horsf($id, $mois, $libelle, $date, $montant) {
     // Le mois étant différent, on créé une nouvelle ligne    
-    $horsf = $this->bdd->prepare('INSERT INTO lignefraishorsforfait VALUES(0, :idVisiteur, :mois, :libelle, :date_hors, :montant)');
+    /*/$horsf = $this->bdd->prepare('INSERT INTO lignefraishorsforfait VALUES(0, :idVisiteur, :mois, :libelle, :date_hors, :montant)');
     $horsf->execute(array(
       'idVisiteur' => $id,
       'mois' => $mois,
@@ -29,6 +29,7 @@ function insert_horsf($id, $mois, $libelle, $date, $montant) {
       'montant' => $montant
     ));
   }
+
   
 
 // Création d'une fiche frais pour l'utilisateur en fonction du mois
@@ -39,32 +40,34 @@ function insert_horsf($id, $mois, $libelle, $date, $montant) {
 
 
 // Vérification de la fiche frais
-function verifFicheFrais() {
+function verifFicheFrais($id, $mois) {
     // On cherche la fiche frais du visiteur
-    $verifFicheFrais = $this->bdd->prepare('SELECT fichefrais WHERE idVisiteur = :id AND mois = :mois');
+    $verifFicheFrais = $this->bdd->prepare('SELECT * FROM fichefrais WHERE idVisiteur = :id AND mois = :mois');
     // Si la fiche n'existe pas, on la créée
-    $resultat = $creationFicheFrais->execute(array(
+    $verifFicheFrais->execute(array(
       'id' => $id,
       'mois' => $mois
     ));
 
+    $resultat = $verifFicheFrais->fetch();
 
-    if ($resultat == NULL) {
-      $creationFicheFrais = $this->bdd->prepare('INSERT INTO fichefrais VALUES(:idVisiteur, :mois, :nbJustificatifs, :montantValide, :dateModif, :idEtat)');
-      $resultat = $creationFicheFrais->execute(array(
-      'idVisiteur' => $id,
-      'mois' => $mois,
-      'nbJustificatifs' => $libelle,
-      'montantValide' => $libelle,
-      'dateModif' => date("d-m-Y"),
-      'idEtat' => "CR"
-    ));
+// Fiche n'existe pas
+    if (sizeof($resultat) == 0) {
+      $creationFicheFrais = $this->bdd->prepare('INSERT INTO fichefrais VALUES(:idVisiteur, :mois, 0, 0, now(), "CR")');
+      $creationFicheFrais->execute(array(
+        'idVisiteur' => $id,
+        'mois' => $mois
+      ));           
     }
     // Sinon, on l'UPDATE
-    else {
-        
+    else if ($resultat['idEtat'] != "CR") {
+      $updateFicheFrais = $this->bdd->prepare('UPDATE fichefrais SET idEtat = "CR" WHERE idVisiteur = :idVisiteur AND mois = :mois');
+      $updateFicheFrais->execute(array(
+        'idVisiteur' => $id,
+        'mois' => $mois
+      ));
     }
-}
+  }
 
   /**
   // Insertion d'une ligne Frais Hors Forfait
