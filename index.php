@@ -58,8 +58,9 @@ else {
   <div align="right">
     Montant du mois : 
     <?php 
-          $stmt = $db->prepare('SELECT SUM(montant) as total FROM lignefraishorsforfait');
-          $stmt->execute();
+          $mois_actuel = date('F');
+          $stmt = $db->prepare('SELECT SUM(montant) as total FROM lignefraishorsforfait WHERE idVisiteur = ? AND mois = ?');
+          $stmt->execute(array($id, $mois_actuel));
           $row = $stmt->fetch(PDO::FETCH_ASSOC);
           $sum = $row['total'];
           $total = $sum;
@@ -94,7 +95,8 @@ echo $total;
     <th>Action</th>
   </tr>
   <?php
-                  $affichage = $db->query('SELECT * FROM lignefraishorsforfait ORDER BY date');
+                  $affichage = $db->prepare('SELECT * FROM lignefraishorsforfait WHERE mois = ? ORDER BY date DESC');
+                  $affichage->execute(array($mois_actuel));
                   while ($donnees = $affichage->fetch())
                     { 
                     ?>
