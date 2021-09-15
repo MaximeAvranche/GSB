@@ -21,7 +21,7 @@ else
     if ($_POST['password'] == $resultat['mdp']) {
         $_SESSION['id'] = $resultat['id'];
         $_SESSION['login'] = $login;
-        header('Location: http://localhost/gsb/espace-visiteur/');
+        header('Location: http://localhost/gsb/');
     }
     else {
         $message = "Impossible";

@@ -1,7 +1,9 @@
 <?php
 session_start();
-include 'includes/connexion.php';
-include 'includes/db.php';
+  $mois_actuel = date('F');
+  $page = 1;
+  include 'includes/connexion.php';
+  include 'includes/db.php';
 if(!isset($_SESSION['id']))
 {
   header('Location: http://localhost/gsb/acces/');
@@ -32,38 +34,70 @@ else {
     }
   }
     }
-
   include 'includes/variables.php';
-  $page = 1;
-  if (isset($_GET['s'])) {
-   $succes = $_GET['s'];
-  }
-  
+  $page = 1;  
 ?>
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="fr">
 <head>
-<title>Espace client - Fiche frais</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Tableau de Bord - GSB</title>
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
 </head>
-<body>
-
-<header>
-	<img src="img/logo.png" class="petit" align="left">
-  <h1><?php echo $prenom; echo " "; echo $nom; ?></h1>
-  <h3>Visiteur</h3>
-  <div align="right">
-    Montant du mois : 
-    <?php 
-          $mois_actuel = date('F');
-          $stmt = $db->prepare('SELECT SUM(montant) as total FROM lignefraishorsforfait WHERE idVisiteur = ? AND mois = ?');
-          $stmt->execute(array($id, $mois_actuel));
-          $row = $stmt->fetch(PDO::FETCH_ASSOC);
-          $sum = $row['total'];
-          $total = $sum;
+<body id="page-top">
+    <div id="wrapper">
+        <?php include 'includes/header.php'; ?>
+                <div class="container-fluid">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Tableau de Bord - <?= $prenom ?> <?= $nom ?></h1>
+                        <a href="ajouter-frais.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-plus fa-sm text-white-50"></i> Ajouter des frais</a>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Frais mensuel</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+<?php 
+     $calculFrais = $db->prepare('SELECT COUNT(id) as totalFrais FROM lignefraishorsforfait WHERE idVisiteur = ? AND mois = ?');
+     $calculFrais->execute(array($id, $mois_actuel));
+     $rowFrais = $calculFrais->fetch(PDO::FETCH_ASSOC);
+     $sumFrais = $rowFrais['totalFrais'];
+     $totalFrais = $sumFrais;
+     echo $totalFrais; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-file fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                          <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Montant du mois</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+<?php
+     $stmt = $db->prepare('SELECT SUM(montant) as total FROM lignefraishorsforfait WHERE idVisiteur = ? AND mois = ?');
+     $stmt->execute(array($id, $mois_actuel));
+     $row = $stmt->fetch(PDO::FETCH_ASSOC);
+     $sum = $row['total'];
+     $total = $sum;
 
      if(isset($_POST['km'])){
           $ETP = 110 * $etape;
@@ -71,74 +105,119 @@ else {
           $NUI = 80 * $nuit;
           $REP = 25 * $repas;
           $total += $ETP + $KLM + $NUI + $REP;
-}
-echo $total;
-          ?>€</div>
-</header>
+     }
+     echo $total; ?>€</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-credit-card fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Votre adresse IP
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">77.134.119.183</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-eye-slash fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                          <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Frais annuel</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+<?php 
+     $calculFrais = $db->prepare('SELECT COUNT(id) as totalFrais FROM lignefraishorsforfait WHERE idVisiteur = ?');
+     $calculFrais->execute(array($id));
+     $rowFrais = $calculFrais->fetch(PDO::FETCH_ASSOC);
+     $sumFrais = $rowFrais['totalFrais'];
+     $totalFrais = $sumFrais;
+     echo $totalFrais; ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-<div style="overflow:auto">
-  <?php include 'includes/header.php'; ?>
-  <div class="main">
-    <h2>Gestion fiches frais</h2>
-    <?php 
-    if (isset($succes) && $succes == "succes"){
-      echo "<div class='succes'><h3> <i class='fa fa-check'></i> Votre fiche frais vient d'être créée.</h3></div>";
-    }
-      ?>
-  	<center><a href="ajouter.php" class="link"><i class="fa fa-plus"></i> Ajouter une fiche frais</a></center>
-  	<br />
-    <table id="t01">
-  <tr>
-  	<th>Date</th>
-    <th>Libellé</th>
-    <th>Montant</th>
-    <th>Action</th>
-  </tr>
-  <?php
-                  $affichage = $db->prepare('SELECT * FROM lignefraishorsforfait WHERE mois = ? ORDER BY date DESC');
-                  $affichage->execute(array($mois_actuel));
-                  while ($donnees = $affichage->fetch())
-                    { 
-                    ?>
-  <tr>
-  	<td><?php echo $donnees['date']; ?></td>
-    <td><?php echo $donnees['libelle']; ?></td>
-    <td><?php echo $donnees['montant']; ?>€</td>
-    <td class="centre"><a href="delete.php?id=<?php echo $donnees['id']; ?>" class="red"><i class="fa fa-trash-o"></i></a></td>
-  </tr>  
-  <?php
-                        }
-                        $affichage->closeCursor(); // Termine le traitement de la requête
-                    ?>
+                    <div class="row">
+                            <div class="card shadow">
+                                <a href="#Informations" class="d-block card-header py-3" data-toggle="collapse"
+                                    role="button" aria-expanded="true" aria-controls="Informations">
+                                    <h6 class="m-0 font-weight-bold text-primary">Informations</h6>
+                                </a>
+                                <div class="collapse show" id="Informations">
+                                    <div class="card-body">                                                       
+                                      <span class="badge badge-primary">Information</span><br />
+                                      <strong>Espace membre GSB</strong><br />
+                                      L'espace membre GSB est le lieu où les utilisateurs pourront faire des ajouts de frais tous les mois. L'interface a été optimisée pour permettre aux visiteurs d'aller directement à l'essentiel.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+<footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright 2021 - Tous droits réservés</span>
+                    </div>
+                </div>
+            </footer> 
 
-</table>
+        </div>
+    </div>
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
-<table id="t01">
-   <tr>
-    <th><?php echo date("Y-m-d"); ?></th>
-    <th>Forfait étape</th>
-    <th>Frais kilométriques</th> 
-    <th>Nuitée hôtel</th>
-    <th>Repas restaurant</th>
-
-
-  </tr>
-  <tr>
-    <td></td>
-    <td><?= (isset($etape)) ? $etape : '' ?></td>
-    <td><?= (isset($km)) ? $km : '' ?></td>
-    <td><?= (isset($nuit)) ? $nuit : '' ?></td>
-    <td><?= (isset($repas)) ? $repas : '' ?></td>
-  </tr>
-</table>
-
-  </div>
-
- 
-</div>
-
-
-<footer> Copyright - GSB</footer>
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Vous souhaitez vous déconnecter ?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Si vous voulez vraiment vous déconnecter, cliquez sur "Je me déconnecte".</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                    <a class="btn btn-primary" href="deconnexion.php">Je me déconnecte</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
+
 </html>

@@ -31,7 +31,7 @@ if(isset($_POST['ajouter']))
     $date = $_POST['date'];
     $montant = $_POST['montant'];
     $functions->verifFicheFrais($_SESSION['id'], date("F"));
-    $functions->insert_horsf($_SESSION['id'], $date, $libelle, $date, $montant);
+    $functions->insert_horsf($_SESSION['id'], date("F"), $libelle, $date, $montant);
 }
 
 // Bouton pressé, on joue la fonction d'insertion en base (Ligne Frais)

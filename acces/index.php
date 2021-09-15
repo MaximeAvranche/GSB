@@ -3,63 +3,47 @@ session_start();
 include 'includes/connexion.php';
 include 'includes/db.php';
 if(isset($_SESSION['login'])) {
-    header('Location: http://localhost/gsb/espace-visiteur/ajouter.php');
+    header('Location: http://localhost/gsb/');
 }
 if (isset($_POST['formconnexion'])) {
     connect($_POST['login'], $_POST['password']);
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/alert.css">
+    <title>Connexion GSB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <link href="//fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/site-style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all">
 </head>
-<body>
-    <?php include 'includes/form_connexion.php'; ?>
-<div class="wrapper">
-    <img src="img/logo.png">
-
-    <section class="login-container">
-        <div>
-            <header>
-                <h2>Identification</h2>
-                <?php
-
-      if(isset($erreur))
-      {
-        echo '
-        <div class="alert text-white bg-danger" role="alert">
-                              <div class="iq-alert-text">
-                              <FONT size="2px">'.$erreur.'</FONT>
-                              </div>
-                           </div>';
-      }
-      if(isset($validation))
-      {
-        echo '<font size="2px" color="green">'.$validation.'</font>';
-      }
-      ?> 
-
-
-
-            </header>
-
-            <form action="" method="post">
-                <?php echo $message; ?>
-                <input type="text" name="login" placeholder="Merci de saisir votre identiant visiteur" required="">
-                <input type="password" name="password" placeholder="Veuillez saisir votre mot de passe" required="">
-				<button type="submit" name="formconnexion">Connexion</button>
-            </form>
-        </div>
-    </section>
-
-</div>
-
-
-
-
-</body>
+    <body>
+            <section class="w3l-hotair-form">
+                <h1>Espace client</h1>
+                <div class="container">
+                    <div class="workinghny-form-grid">
+                        <div class="main-hotair">
+                            <div class="content-wthree">
+                                <h2>Connexion</h2>
+                                <form action="" method="post">
+                                    <input type="text" class="text" name="login" placeholder="Identifiant" required="" autofocus>
+                                    <input type="password" class="password" name="password" placeholder="Mot de passe" required="" autofocus>
+                                    <button class="btn" name="formconnexion" type="submit">Connexion</button>
+                                </form>
+                            </div>
+                            <div class="w3l_form align-self">
+                                <div class="left_grid_info">
+                                    <img src="images/fond.png" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright text-center">
+                    <p class="copy-footer-29">Copyright - GSB - Maxime Avranche</p>
+                </div>
+            </section>
+    </body>
 </html>
