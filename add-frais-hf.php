@@ -86,8 +86,12 @@ if(isset($_POST['ajouter']))
                                                 Frais Hors Forfait
                                             </a>
                                             <a class="list-group-item list-group-item-action p-3" href="mes-tickets.php">
-                                                <i class="fas fa-file-alt fa-fw me-2 text-gray-400"></i>
-                                                Mes tickets
+                                                <i class="fas fa-plus fa-fw me-2 text-gray-400"></i>
+                                                Frais Forfait
+                                            </a>
+                                            <a class="list-group-item list-group-item-action p-3" href="mes-tickets.php">
+                                                <i class="fas fa-clone fa-fw me-2 text-gray-400"></i>
+                                                Voir mes fiches
                                             </a>
                                         </div>
                                     </div>

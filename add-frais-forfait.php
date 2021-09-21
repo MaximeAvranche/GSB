@@ -50,6 +50,7 @@ if(isset($_POST['modifier']))
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> 
     <script src="https://cdn.ckeditor.com/4.6.1/full/ckeditor.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body id="page-top">
     <div id="wrapper">
@@ -72,8 +73,20 @@ if(isset($_POST['modifier']))
                                                 Frais Forfait
                                             </a>
                                             <a class="list-group-item list-group-item-action p-3" href="mes-tickets.php">
-                                                <i class="fas fa-file-alt fa-fw me-2 text-gray-400"></i>
-                                                Mes tickets
+                                                <i class="fas fa-map-marker fa-fw me-2 text-gray-400"></i>
+                                                Forfait Etape : <span class="badge badge-success">1</span>
+                                            </a>
+                                            <a class="list-group-item list-group-item-action p-3" href="mes-tickets.php">
+                                                <i class="fas fa-car fa-fw me-2 text-gray-400"></i>
+                                                Frais Kilométrique : <span class="badge badge-primary">55</span>
+                                            </a>
+                                            <a class="list-group-item list-group-item-action p-3" href="mes-tickets.php">
+                                                <i class="fas fa-bed fa-fw me-2 text-gray-400"></i>
+                                                Nuitée Hôtel : <span class="badge badge-danger">0</span>
+                                            </a>
+                                            <a class="list-group-item list-group-item-action p-3" href="mes-tickets.php">
+                                                <i class="fas fa-glass fa-fw me-2 text-gray-400"></i>
+                                                Repas Restaurant <span class="badge badge-warning">1</span>
                                             </a>
                                         </div>
                                     </div>
@@ -106,15 +119,15 @@ if(isset($_POST['modifier']))
                                               <div class="yoo-select">
                                                 <select class="form-control" name="type" required>
                                                   <option value="">Choisir un type de frais</option>
-                                                  <option value="ETP">Forfait Etape - </option>
-                                                  <option value="KM">Frais Kilométrique - </option>
-                                                  <option value="NUI">Nuitée Hôtel - </option>
-                                                  <option value="REP">Repas Restaurant - </option>
+                                                  <option value="ETP">Forfait Etape</option>
+                                                  <option value="KM">Frais Kilométrique</option>
+                                                  <option value="NUI">Nuitée Hôtel</option>
+                                                  <option value="REP">Repas Restaurant</option>
                                                 </select>
                                               </div>
                                             </div>
                                              <label for="exampleInputEmail18">Quantité</label>
-                                             <input type="number" name="qte" placeholder="Indiquez la quantité" class="form-control" min="0" max="50000" step="1" required>
+                                             <input type="number" name="qte" placeholder="Indiquez la quantité" class="form-control" max="50000" step="1" required>
                                           </div>
                                             <div class="form-group">
                                               <div class="col-sm-6" style="margin-top:10px;">

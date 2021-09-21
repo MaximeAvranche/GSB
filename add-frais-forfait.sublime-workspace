@@ -1,0 +1,814 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"whil",
+				"while"
+			],
+			[
+				"fun",
+				"functions"
+			],
+			[
+				"fet",
+				"fetchAll"
+			],
+			[
+				"exe",
+				"execute"
+			],
+			[
+				"date",
+				"date()"
+			],
+			[
+				"a",
+				"action"
+			],
+			[
+				"err",
+				"erreurok"
+			],
+			[
+				"ec",
+				"echo"
+			],
+			[
+				"_S",
+				"$_SESSION"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"padd",
+				"padding-right"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"tex",
+				"text-decoration"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"ma",
+				"margin-bottom"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"h",
+				"h2"
+			],
+			[
+				"ac",
+				"action"
+			],
+			[
+				"emp",
+				"empty()"
+			],
+			[
+				"inl",
+				"incl"
+			],
+			[
+				"in",
+				"incl"
+			],
+			[
+				"inc",
+				"incl"
+			],
+			[
+				"_G",
+				"$_GET"
+			],
+			[
+				"tota",
+				"totatsansheberg"
+			],
+			[
+				"_",
+				"$_GET"
+			],
+			[
+				"bord",
+				"border-radius"
+			],
+			[
+				"whi",
+				"while"
+			],
+			[
+				"incl",
+				"include"
+			],
+			[
+				"id",
+				"id_modif"
+			],
+			[
+				"backgro",
+				"background-color\tproperty"
+			],
+			[
+				"heade",
+				"headers"
+			],
+			[
+				"con",
+				"contenu"
+			],
+			[
+				"moyen",
+				"moyens"
+			],
+			[
+				"i",
+				"if\tif …"
+			],
+			[
+				"pri",
+				"prix_hs"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"to",
+				"TotalTTC"
+			],
+			[
+				"who",
+				"who_res"
+			],
+			[
+				"titre",
+				"titre_notif"
+			],
+			[
+				"paddi",
+				"padding-left\tproperty"
+			],
+			[
+				"paddin",
+				"padding-right\tproperty"
+			],
+			[
+				"pad",
+				"padding-left\tproperty"
+			],
+			[
+				"ticke",
+				"ticket_id"
+			],
+			[
+				"ex",
+				"exit"
+			],
+			[
+				"e",
+				"echo"
+			],
+			[
+				"el",
+				"else"
+			],
+			[
+				"not",
+				"notif_pass"
+			],
+			[
+				"pass",
+				"password_c"
+			],
+			[
+				"ar",
+				"array\t$… = array (…)"
+			],
+			[
+				"mysql_num",
+				"mysql_num_rows"
+			],
+			[
+				"my",
+				"mysql_error"
+			],
+			[
+				"pas",
+				"password_c"
+			],
+			[
+				"password",
+				"password_n"
+			],
+			[
+				"info",
+				"info_mdp"
+			],
+			[
+				"ech",
+				"echo\techo \"…\""
+			],
+			[
+				"margin",
+				"margin-right\tproperty"
+			],
+			[
+				"margi",
+				"margin-left\tproperty"
+			],
+			[
+				"padding",
+				"padding-right\tproperty"
+			],
+			[
+				"pa",
+				"padding-top\tproperty"
+			],
+			[
+				"font-s",
+				"font-size\tproperty"
+			],
+			[
+				"opt",
+				"option\tTag"
+			],
+			[
+				"l",
+				"lang\tAttr"
+			],
+			[
+				"st",
+				"style\tTag"
+			],
+			[
+				"etat",
+				"etat_cli"
+			],
+			[
+				"me",
+				"message"
+			],
+			[
+				"noti",
+				"notif_maintenance"
+			],
+			[
+				"notif_maintenance_",
+				"notif_maintenance_haut"
+			],
+			[
+				"init",
+				"init_repas"
+			],
+			[
+				"init_",
+				"init_km"
+			],
+			[
+				"do",
+				"donnees"
+			],
+			[
+				"lni-te",
+				"lni-phone-handset"
+			],
+			[
+				"slider",
+				"slider-three-active"
+			],
+			[
+				"le",
+				"libelle"
+			],
+			[
+				"text-a",
+				"text-align\tproperty"
+			],
+			[
+				"r",
+				"rows\tAttr"
+			],
+			[
+				"session_de",
+				"session_destroy"
+			],
+			[
+				"form",
+				"formconnexion"
+			],
+			[
+				"html",
+				"htmlspecialchars"
+			],
+			[
+				"ident",
+				"identifiant"
+			],
+			[
+				"iden",
+				"identiantco"
+			],
+			[
+				"destinat",
+				"destinataire"
+			],
+			[
+				"backgr",
+				"background-color\tproperty"
+			],
+			[
+				"img",
+				"imgDate"
+			],
+			[
+				"cont",
+				"contexte2"
+			],
+			[
+				"dess",
+				"dessin2"
+			],
+			[
+				"des",
+				"dessin"
+			],
+			[
+				"back",
+				"background-color\tproperty"
+			],
+			[
+				"fle",
+				"flex-flow\tproperty"
+			],
+			[
+				"user",
+				"usertest"
+			],
+			[
+				"backgrou",
+				"background-repeat\tproperty"
+			],
+			[
+				"si",
+				"background-size\tproperty"
+			],
+			[
+				"li",
+				"link\tTag"
+			],
+			[
+				"for",
+				"form\tTag"
+			],
+			[
+				"array",
+				"array"
+			],
+			[
+				"arr",
+				"array"
+			],
+			[
+				"suge",
+				"suggestions"
+			],
+			[
+				"on",
+				"onclick"
+			],
+			[
+				"sugges",
+				"suggestions"
+			],
+			[
+				"sugge",
+				"suggestions"
+			],
+			[
+				"no",
+				"nomodele"
+			],
+			[
+				"max",
+				"max-width\tproperty"
+			],
+			[
+				"re",
+				"required\tAttr"
+			],
+			[
+				"cond",
+				"condition2"
+			],
+			[
+				"condtio",
+				"condition1"
+			],
+			[
+				"cen",
+				"centered"
+			],
+			[
+				"mi",
+				"middle"
+			],
+			[
+				"haute",
+				"hauteurd"
+			],
+			[
+				"ti",
+				"title\tTag"
+			],
+			[
+				"ima",
+				"image1"
+			],
+			[
+				"borde",
+				"border-color\tproperty"
+			],
+			[
+				"s",
+				"style\tAttr"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"hea",
+				"header\tTag"
+			],
+			[
+				"etoile",
+				"etoiles2"
+			],
+			[
+				"co",
+				"color\tproperty"
+			],
+			[
+				"bac",
+				"background-color\tproperty"
+			],
+			[
+				"get",
+				"getContext"
+			],
+			[
+				"dessin",
+				"dessin2"
+			],
+			[
+				"met",
+				"meta\tTag"
+			],
+			[
+				"els",
+				"else"
+			],
+			[
+				"wi",
+				"width\tproperty"
+			],
+			[
+				"if",
+				"if\tif …"
+			],
+			[
+				"u",
+				"url()\tbackground-image"
+			],
+			[
+				"backgroun",
+				"background-size\tproperty"
+			],
+			[
+				"fon",
+				"font-family\tproperty"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/wamp64/www/gsb/includes/functions.php",
+		"/C/Users/Maxime/Documents/GitHub/GSB/ajouter.php",
+		"/C/Users/Maxime/Desktop/Raft.Update.13.01/Raft.Update.13.01/Raft_Data/StreamingAssets/Data.rgd",
+		"/C/wamp64/www/gsb/add-frais-forfait.php",
+		"/C/wamp64/www/gsb/mes-fiches-frais.php",
+		"/C/wamp64/www/gsb/index.php",
+		"/C/wamp64/www/gsb/ajouter-frais.php",
+		"/C/Users/Maxime/Downloads/script droits utilisateurs.sql",
+		"/C/Users/Maxime/Downloads/gsbv2 (2).sql",
+		"/C/Users/Maxime/Downloads/gsbv2 (1).sql",
+		"/C/wamp64/www/gsb/includes/header.php",
+		"/C/Users/Maxime/Documents/GitHub/GSB/includes/connexion.php",
+		"/C/wamp64/www/gsb/ajouter.php",
+		"/C/wamp64/www/gsb/add-frais-hf.php",
+		"/C/wamp64/www/gsb/includes/connexion.php",
+		"/C/wamp64/www/gsb/mes-factures.php",
+		"/C/wamp64/www/gsb/delete.php",
+		"/C/wamp64/www/GSB-SAVE/index.php",
+		"/C/Users/Maxime/Documents/A-Prestarvor/Save lycée/dashboard/mes-fiches-frais.php",
+		"/C/Users/Maxime/Documents/A-Prestarvor/Save lycée/dashboard/creer-ticket.php",
+		"/C/wamp64/wampmanager.conf",
+		"/C/wamp64/www/gsb/creer-ticket.php",
+		"/C/wamp64/www/gsb/includes/db.php",
+		"/C/wamp64/www/gsb/includes/config.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/header.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/index.php",
+		"/C/Users/Maxime/Documents/A-Prestarvor/Save lycée/dashboard/index.php",
+		"/C/wamp64/www/GSB-SAVE/includes/connexion.php",
+		"/C/wamp64/www/GSB-SAVE/includes/config.php",
+		"/C/wamp64/www/GSB-SAVE/includes/db.php",
+		"/C/wamp64/www/marin/index.html",
+		"/C/Users/Maxime/Documents/GitHub/GSB/connexion.php",
+		"/C/wamp64/www/gsb/acces/index.php",
+		"/C/Users/Maxime/Documents/GitHub/GSB/acces/index.php",
+		"/C/wamp64/www/gsb/index/index.html",
+		"/C/wamp64/www/gsb/cv/index.php",
+		"/C/Users/Maxime/AppData/Local/Temp/Rar$DRa62932.3026/Report-Login-Free/index.html",
+		"/C/Users/Maxime/AppData/Local/Temp/Rar$DIa62932.48648/style.css",
+		"/C/Users/Maxime/AppData/Local/Temp/Rar$DIa62932.48028/font-awesome.min.css",
+		"/C/Users/Maxime/Documents/A-Prestarvor/Site/dashboard V1/details-realisation.php",
+		"/C/Users/Maxime/Documents/A-Prestarvor/Site/dashboard V1/includes/configuration.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/connexion.php",
+		"/C/wamp64/www/gsb/espace-visiteur/ajouter.php",
+		"/C/wamp64/www/gsb/includes/insert.php",
+		"/C/wamp64/www/gsb/espace-visiteur/includes/functions.php",
+		"/C/wamp64/www/gsb/includes/variables.php",
+		"/C/Users/Maxime/Documents/GitHub/GSB/index.php",
+		"/C/wamp64/www/gsb/includes/script.php",
+		"/C/Users/Maxime/Documents/GitHub/GSB/includes/variables.php",
+		"/C/Users/Maxime/Documents/GitHub/GSB/espace-visiteur/includes/functions.php",
+		"/C/Users/Maxime/Documents/A-Prestarvor/Site/dashboard V1/index.php",
+		"/C/wamp64/www/gsb/espace-visiteur/add-frais-forfait.php",
+		"/C/wamp64/www/gsb/espace-visiteur/index.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/creer-ticket.php",
+		"/C/Users/Maxime/Documents/A-Prestarvor/Site/dashboard V1/creer-ticket.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/creer-ticket.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/details-realisation.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/realisations.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/index 3.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/connexion.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/mes-tickets.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/connexion 2.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/config.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/fonctions.php",
+		"/C/wamp64/www/gsb/espace-visiteur/includes/variables.php",
+		"/C/wamp64/www/gsb/espace-visiteur/includes/db.php",
+		"/C/wamp64/www/gsb/espace-visiteur/includes/insert.php",
+		"/C/wamp64/www/gsb/espace-visiteur/includes/fonctions.php",
+		"/C/wamp64/www/gsb/acces/includes/connexion.php",
+		"/C/Users/Maxime/Downloads/gsbv2.sql",
+		"/C/wamp64/www/gsb/acces/includes/db.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/maintenance.php",
+		"/C/Users/Maxime/Documents/Mysneaker/SAVE-01-04-2021/httpdocs/includes/db.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/index 2.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/db.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/functions.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/db 2.php",
+		"/C/wamp64/www/prestarvor/ADM/configuration.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/maintenance.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/signature-email.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/realisations.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/post.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/prestations.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/modules.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/mentions-legales.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/lettre-motivation.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/index 3.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/documents-legaux.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/curriculum-vitae.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/contrat-de-maintenance.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/contact.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/commander-lettre-de-motivation.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/commander-curriculum-vitae.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/blog.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/index 2.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/maintenance 2.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/about.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/config.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/maintenance 3.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/fonctions.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/mode.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/index.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/functions.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/mode_maintenance.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/configuration.php",
+		"/C/wamp64/www/prestarvor/ADM/includes/mode_maintenance.php",
+		"/C/wamp64/www/Pr3sta/sdfssfsdfs.php",
+		"/C/wamp64/www/Pr3sta/IMPORTANT DETAIL.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/commander-curriculum-vitae.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/send-cv.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/send-ldm.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/footer.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/commander-lettre-de-motivation.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/validation.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/sending.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/contact.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-2/curriculum-vitae.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/table.css",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/header.php",
+		"/C/Users/Maxime/AppData/Local/Temp/fz3temp-3/style.css",
+		"/C/Program Files (x86)/Steam/steamapps/common/OMSI 2/Vehicles/MB_O530/Model/paths.cfg",
+		"/C/Program Files (x86)/Steam/steamapps/common/OMSI 2/Vehicles/MB_O530/Model/model_O530.cfg",
+		"/C/Program Files (x86)/Steam/steamapps/common/OMSI 2/Vehicles/MB_O530/Model/model_O530_K++.cfg",
+		"/C/Program Files (x86)/Steam/steamapps/common/OMSI 2/Vehicles/MB_O530/Model/model_O530 3 Doors.cfg",
+		"/C/Program Files (x86)/Steam/steamapps/common/OMSI 2/Vehicles/MB_O530/Regs_O530.org",
+		"/C/Program Files (x86)/Steam/steamapps/common/OMSI 2/Vehicles/MB_O530/MB_O530 3 Doors.bus",
+		"/C/Program Files (x86)/Steam/steamapps/common/OMSI 2/Vehicles/MB_O530/MB_O530_manuals.bus",
+		"/C/Program Files (x86)/Steam/steamapps/common/OMSI 2/Vehicles/MB_O530/MB_O530.bus"
+	],
+	"find":
+	{
+		"height": 27.2
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.2
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "add-frais-forfait.sublime-project",
+	"replace":
+	{
+		"height": 51.2
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\wamp64\\www\\gsb\\espace-visiteur\\includes\\variables.php"
+			],
+			[
+				"mer",
+				"C:\\Users\\Maxime\\AppData\\Local\\Temp\\fz3temp-3\\merci.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 215.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
