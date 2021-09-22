@@ -3,9 +3,6 @@
 session_start();
 $page = 2;
 $mois_actuel = date('F');
-// Redirection si l'utilisateur est connecté ou non
-include 'includes/connexion.php';
-
 /**
  * UTILISATEUR NON CONNECTE
 **/
@@ -73,37 +70,35 @@ if(isset($_POST['ajouter']))
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Rérérence</th>
-                                            <th>&Eacute;mise le</th>
+                                            <th>Mois</th>
+                                            <th>Montant total</th>
+                                            <th>Nbr justificatifs</th>
+                                            <th>&Eacute;tat</th>
                                             <th>Détails</th>
-                                            <th>Montant</th>
-                                            <th>Supprimer</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Rérérence</th>
-                                            <th>&Eacute;mise le</th>
+                                            <th>Mois</th>
+                                            <th>Montant total</th>
+                                            <th>Nbr justificatifs</th>
+                                            <th>&Eacute;tat</th>
                                             <th>Détails</th>
-                                            <th>Montant</th>
-                                            <th>Supprimer</th>
                                         </tr>
                                     </tfoot>
                                     <tbody> 
                                         <?php
-                  $affichage = $db->prepare('SELECT * FROM lignefraishorsforfait WHERE mois = ? ORDER BY date DESC');
-                  $affichage->execute(array($mois_actuel));
-                  while ($donnees = $affichage->fetch())
-                    { 
-
-                    ?>
+                                          $affichage = $db->prepare('SELECT * FROM fichefrais WHERE idVisiteur = ? ORDER BY mois DESC');
+                                          $affichage->execute(array($id));
+                                          while ($donnees = $affichage->fetch())
+                                                { ?>
                                         <tr>
-                                            <td><span class="badge badge-primary">1++</span></td>
-                                            <td><?php echo $donnees['date']; ?></td>
-                                            <td><?php echo $donnees['libelle']; ?></td>
-                                            <td><?php echo $donnees['montant']; ?>€</td>
-                                            <td align="center"><a href="delete.php?id=<?php echo $donnees['id']; ?>" class="red"><i class="fas fa-trash"></i></a></td>
-                                        </tr>  
+                                            <td><?php echo $donnees['mois']; ?></td>
+                                            <td><?php echo $donnees['montantValide']; ?>€</td>                                            
+                                            <td><?php echo $donnees['nbJustificatifs']; ?></td>
+                                            <td><span class="badge badge-warning">En cours</span></td>
+                                            <td align="center"><a href=""><i class="fa fa-eye"></i> Consulter</a></td>
+                                        </tr>
                                         <?php
                         }
                         $affichage->closeCursor(); // Termine le traitement de la requête

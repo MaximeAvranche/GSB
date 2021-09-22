@@ -1,14 +1,9 @@
 <?php 
-  $page = 5;
+  $page = 4;
 ?>
 <?php
 // Démarre une nouvelle session ou reprend une session existante
 session_start();
-$page = 2;
-
-// Redirection si l'utilisateur est connecté ou non
-include 'includes/connexion.php';
-
 /**
  * UTILISATEUR NON CONNECTE
 **/
@@ -81,15 +76,11 @@ if(isset($_POST['ajouter']))
                                 <div class="col-lg-4 col-xl-3 mb-5">
                                     <div class="card">
                                         <div class="list-group list-group-flush small">
-                                            <a class="list-group-item list-group-item-action p-3" href="creer-ticket.php">
-                                                <i class="fas fa-plus fa-fw me-2 text-gray-400"></i>
-                                                Frais Hors Forfait
-                                            </a>
-                                            <a class="list-group-item list-group-item-action p-3" href="mes-tickets.php">
+                                            <a class="list-group-item list-group-item-action p-3" href="add-frais-forfait.php">
                                                 <i class="fas fa-plus fa-fw me-2 text-gray-400"></i>
                                                 Frais Forfait
                                             </a>
-                                            <a class="list-group-item list-group-item-action p-3" href="mes-tickets.php">
+                                            <a class="list-group-item list-group-item-action p-3" href="mes-fiches-frais.php">
                                                 <i class="fas fa-clone fa-fw me-2 text-gray-400"></i>
                                                 Voir mes fiches
                                             </a>

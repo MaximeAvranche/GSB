@@ -1,9 +1,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-text mx-3">GSB</div>
             </a>
-            <!-- Intitulé de la section -->
             <hr class="sidebar-divider my-0">
 
             <!-- Menu - Tableau de Bord -->
@@ -21,24 +19,22 @@
                 Consultation
             </div>
 
-            <!-- Menu - Page Factures -->
             <li <?php if ($page == 2) { $active = " active"; } else { $active = NULL; } ?> class="nav-item<?= $active; ?>">
                 <a class="nav-link" href="mes-fiches-frais.php">
                     <i class="fas fa-clone fa-chart-area"></i>
                     <span>Mes fiches frais</span></a>
             </li>
-            <li <?php if ($page == 2) { $active = " active"; } else { $active = NULL; } ?> class="nav-item<?= $active; ?>">
-                <a class="nav-link" href="mes-fiches-frais.php">
+            <li <?php if ($page == 3) { $active = " active"; } else { $active = NULL; } ?> class="nav-item<?= $active; ?>">
+                <a class="nav-link" href="add-frais-forfait.php">
                     <i class="fas fa-plus fa-chart-area"></i>
                     <span>Ajouter Frais Forfait</span></a>
             </li>
-            <li <?php if ($page == 2) { $active = " active"; } else { $active = NULL; } ?> class="nav-item<?= $active; ?>">
-                <a class="nav-link" href="mes-fiches-frais.php">
+            <li <?php if ($page == 4) { $active = " active"; } else { $active = NULL; } ?> class="nav-item<?= $active; ?>">
+                <a class="nav-link" href="add-frais-hf.php">
                     <i class="fas fa-plus fa-chart-area"></i>
                     <span>Ajouter Frais Hors Forfait</span></a>
             </li>
 
-            <!-- Séparation -->
             <hr class="sidebar-divider">
 
 
@@ -50,18 +46,13 @@
 
         <div id="content-wrapper" class="d-flex flex-column">
 
-            <!-- Main Content -->
             <div id="content">
 
-                <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <div align="right">
-                        <p>Date du jour : <? date("d/m/Y"); ?></p>
-                    </div>
                     <ul class="navbar-nav ml-auto">
                         <div class="topbar-divider d-none d-sm-block"></div>
                         <li class="nav-item dropdown no-arrow">

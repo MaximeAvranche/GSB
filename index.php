@@ -2,7 +2,6 @@
 session_start();
   $mois_actuel = date('F');
   $page = 1;
-  include 'includes/connexion.php';
   include 'includes/db.php';
 if(!isset($_SESSION['id']))
 {
@@ -90,7 +89,7 @@ else {
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Montant du mois</div>
+                                                Montant frais hors forfait</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
 <?php
      $stmt = $db->prepare('SELECT SUM(montant) as total FROM lignefraishorsforfait WHERE idVisiteur = ? AND mois = ?');

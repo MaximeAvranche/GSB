@@ -1,13 +1,9 @@
 <?php 
-  $page = 5;
+  $page = 3;
 ?>
 <?php
 // Démarre une nouvelle session ou reprend une session existante
 session_start();
-$page = 2;
-
-// Redirection si l'utilisateur est connecté ou non
-include 'includes/connexion.php';
 
 /**
  * UTILISATEUR NON CONNECTE
@@ -32,7 +28,7 @@ if(isset($_POST['modifier']))
   {
     $type = $_POST['type'];
     $qte = $_POST['qte'];
-    $functions->insert_forfait($_SESSION['id'], date("F"), $type, $qte);
+    $functions->insert_forfait($_SESSION['id'], date('F'), $type, $qte);
 }
 
 ?>
@@ -68,23 +64,23 @@ if(isset($_POST['modifier']))
                                 <div class="col-lg-4 col-xl-3 mb-5">
                                     <div class="card">
                                         <div class="list-group list-group-flush small">
-                                            <a class="list-group-item list-group-item-action p-3" href="creer-ticket.php">
+                                            <a class="list-group-item list-group-item-action p-3" href="add-frais-hf.php">
                                                 <i class="fas fa-plus fa-fw me-2 text-gray-400"></i>
-                                                Frais Forfait
+                                                Frais Hors Forfait
                                             </a>
-                                            <a class="list-group-item list-group-item-action p-3" href="mes-tickets.php">
+                                            <a class="list-group-item list-group-item-action p-3" href="#etp">
                                                 <i class="fas fa-map-marker fa-fw me-2 text-gray-400"></i>
                                                 Forfait Etape : <span class="badge badge-success">1</span>
                                             </a>
-                                            <a class="list-group-item list-group-item-action p-3" href="mes-tickets.php">
+                                            <a class="list-group-item list-group-item-action p-3" href="#km">
                                                 <i class="fas fa-car fa-fw me-2 text-gray-400"></i>
                                                 Frais Kilométrique : <span class="badge badge-primary">55</span>
                                             </a>
-                                            <a class="list-group-item list-group-item-action p-3" href="mes-tickets.php">
+                                            <a class="list-group-item list-group-item-action p-3" href="#nui">
                                                 <i class="fas fa-bed fa-fw me-2 text-gray-400"></i>
                                                 Nuitée Hôtel : <span class="badge badge-danger">0</span>
                                             </a>
-                                            <a class="list-group-item list-group-item-action p-3" href="mes-tickets.php">
+                                            <a class="list-group-item list-group-item-action p-3" href="#rep">
                                                 <i class="fas fa-glass fa-fw me-2 text-gray-400"></i>
                                                 Repas Restaurant <span class="badge badge-warning">1</span>
                                             </a>

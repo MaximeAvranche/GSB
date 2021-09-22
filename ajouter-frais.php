@@ -3,9 +3,6 @@
 session_start();
 $page = 5;
 
-// Redirection si l'utilisateur est connecté ou non
-include 'includes/connexion.php';
-
 /**
  * UTILISATEUR NON CONNECTE
 **/

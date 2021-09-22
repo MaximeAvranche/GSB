@@ -1,12 +1,12 @@
 <?php
 session_start();
-include 'includes/connexion.php';
-include 'includes/db.php';
+include '../includes/functions.php';
 if(isset($_SESSION['login'])) {
     header('Location: http://localhost/gsb/');
 }
 if (isset($_POST['formconnexion'])) {
-    connect($_POST['login'], $_POST['password']);
+    $functions = new ConnexionBase();
+    $functions->connect($_POST['login'], $_POST['password']);
 }
 ?>
 <!DOCTYPE html>

@@ -70,12 +70,34 @@ class ConnexionBase
       }
     }
 
-/**
-*
-** Delete les fiches manuellement avec compte Admin / Compta
-* Ce qui donne : Créer compte comptable et y générer une interface avec possibilité de réinialiser toutes les données
-*
-**/
+    function connect($login, $password) {
+      $db = new PDO('mysql:host=localhost;dbname=gsbv2;charset=utf8', 'root', '');
+      $login = htmlspecialchars($login);
+      $password = htmlspecialchars($password);
+      $req = $db->prepare('SELECT id, mdp FROM visiteur WHERE login = :login');
+      $req->execute(array(
+          'login' => $login));
+      $resultat = $req->fetch();
+
+
+    if (!$resultat)
+    {
+        $message = 'Mauvais identifiant ou mot de passe !';
+    }
+      else
+      {
+          if ($_POST['password'] == $resultat['mdp']) {
+              $_SESSION['id'] = $resultat['id'];
+              $_SESSION['login'] = $login;
+              $this->verifFicheFrais($_SESSION['id'], date('F'));
+              header('Location: http://localhost/gsb/');
+          }
+          else {
+              $message = "Impossible";
+          }
+      }
+    }
+
     // Insertion d'une ligne Frais Hors Forfait
   function insert_horsf($id, $mois, $libelle, $date, $montant) {
       $mois_actuel = date('F');
@@ -88,21 +110,12 @@ class ConnexionBase
         'libelle' => $libelle,
         'date' => $date,
         'montant' => $montant));
-        // Test de fonctionnement, on affiche un message echo "<FONT size='35px' color=red>Insérée</FONT>";
+          // Test de fonctionnement, on affiche un message echo "<FONT size='35px' color=red>Insérée</FONT>";
         header("Location: add-frais-hf.php");
       }
     }
 
     // Vérification et création d'une ligne frais
- /** function ligneFrais() {
-      if ($mois_actuel == $mois) {
-          //DELETE TOUTE
-      }
-      else {
-
-      }
-  }**/
-
   function insert_forfait($id, $mois, $type, $qte) {
       $forfait = $this->bdd->prepare('UPDATE lignefraisforfait SET quantite = :quantite WHERE idVisiteur = :idVisiteur AND mois = :mois AND idFraisForfait = :idFraisForfait');
         $forfait->execute(array(
