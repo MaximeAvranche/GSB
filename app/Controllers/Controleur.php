@@ -12,10 +12,10 @@ use CodeIgniter\Controller;
 class Controleur extends Controller {
 
 //=====================================================================
-//Fonction index correspondant au Controleur frontal (ou index.php) en MVC libre
+//Fonction index correspondant au Controleur frontal, il faut retourner a l'index pour appeler la plupart des fonction PHP
 //=====================================================================
 public function index(){
-	
+	//vérifie si le bouton "ajouter Hors Forfait" a été préssé
 	if(isset($_POST['libelle_HF'])){
 		session_start();
 		$modele = new \App\Models\Modele();
@@ -30,6 +30,7 @@ public function index(){
 		echo view('vue_ajouterFraisForfait');
 		$this->affichageFraisHF();
 	}
+	//vérifie si le bouton "connexion" a été préssé
 	else if(isset($_POST['login'])){
 		$resultat = $this->connect($_POST['login'], $_POST['password']);
 	}
@@ -40,7 +41,7 @@ public function index(){
 
 
 //======================================================
-// Code du controleur simple (ex fichier Controleur.php)
+// mène a l'écran de connexion
 //======================================================
 
 public function accueil() {
@@ -48,7 +49,7 @@ public function accueil() {
 	echo view('vue_connection');
 }
 
-
+//a utilisé pour verifier si le mot de passe et l'identifiant sont correct
 public function connect($login,$mdp){
 	$modele = new \App\Models\Modele();
 	$resultat = $modele->mdpVerif($login);
@@ -77,11 +78,7 @@ public function connect($login,$mdp){
 	echo($message);
 
 }
-// Affiche une erreur
-public function erreur($msgErreur) {
-  echo view('vueErreur.php', $data);
-}
-
+//affiche les frais HF du mois (n'affiche pas juste les frais de l'utilisateur mais les frais de TOUT LE MONDE, a changé plus tard)
 public function affichageFraisHF(){
 				  $modele = new \App\Models\Modele();
 				  $mois_actuel = date('F');
@@ -101,6 +98,7 @@ public function affichageFraisHF(){
                         
 }
 
+//(en construction) affiche les frais du mois
 public function afficheFrais($id,$mois){
 	$modele = new \App\Models\Modele();
 	$resultat = $modele->chercheFicheVisiteur($id,$mois);
@@ -117,10 +115,15 @@ public function afficheFrais($id,$mois){
 
 
 }
-//==========================
+
+// Affiche une erreur
+public function erreur($msgErreur) {
+	echo view('vueErreur.php', $data);
+  }
+
+  //==========================
 //Fin du code du controleur simple
 //===========================
-
 //fin de la classe
 }
 ?>
