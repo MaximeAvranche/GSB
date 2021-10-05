@@ -1,11 +1,10 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-text mx-3">GSB</div>
             </a>
             <hr class="sidebar-divider my-0">
-
             <!-- Menu - Tableau de Bord -->
-            <li class="nav-item<?= $active; ?>">
+            <li class="nav-item">
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Tableau de Bord</span></a>
@@ -19,18 +18,18 @@
                 Consultation
             </div>
 
-            <li class="nav-item<?= $active; ?>">
-                <a class="nav-link" href="mes-fiches-frais.php">
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?action=afficherFF">
                     <i class="fas fa-clone fa-chart-area"></i>
                     <span>Mes fiches frais</span></a>
             </li>
-            <li class="nav-item<?= $active; ?>">
-                <a class="nav-link" href="add-frais-forfait.php">
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?action=fraisF">
                     <i class="fas fa-plus fa-chart-area"></i>
                     <span>Ajouter Frais Forfait</span></a>
             </li>
-            <li class="nav-item<?= $active; ?>">
-                <a class="nav-link" href="add-frais-hf.php">
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?action=fraisHF">
                     <i class="fas fa-plus fa-chart-area"></i>
                     <span>Ajouter Frais Hors Forfait</span></a>
             </li>
@@ -61,12 +60,12 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="profil.php">
+                                <a class="dropdown-item" href="#.">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Mon profil
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <form method="POST">
+                                <form method="GET" action="index.php?action=deco">
                                     <button type="submit" name="btn-deco" class="dropdown-item">Déconnexion</button>
                                 </form>
                             </div>

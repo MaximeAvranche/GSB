@@ -61,7 +61,6 @@ public function getBillets() {
         $resultat = $db->query($sql, [$login]);
     	$resultat = $resultat->getResult();	
         return $resultat;
-      
     }
 
         // Permet d'insérer un frais forfait en base
@@ -91,6 +90,38 @@ public function getBillets() {
             return $resultat;          
         }
 
+
+    public function initialiseFicheFrais() {
+        $db = db_connect();    
+        $sql = 'INSERT INTO fichefrais VALUES(?, ?, 0, 0, now(), "CR")';
+        $resultat = $db->query($sql, [$_SESSION['id'], date('F')]);         
+        
+        // On créé et initialise 4 Lignes Frais Forfait correspondant au mois
+        $sql = 'INSERT INTO lignefraisforfait VALUES(?, ?, "ETP", 0)';
+        $resultat = $db->query($sql, [$_SESSION['id'], date('F')]);         
+   
+        $sql = 'INSERT INTO lignefraisforfait VALUES(?, ?, "KM", 0)';
+        $resultat = $db->query($sql, [$_SESSION['id'], date('F')]);     
+  
+        $sql = 'INSERT INTO lignefraisforfait VALUES(?, ?, "NUI", 0)';
+        $resultat = $db->query($sql, [$_SESSION['id'], date('F')]);     
+   
+        $sql = 'INSERT INTO lignefraisforfait VALUES(?, ?, "REP", 0)';
+        $resultat = $db->query($sql, [$_SESSION['id'], date('F')]);     
+    }
+
+
+    public function recupFF($typeFrais) {
+        $db = db_connect();    
+        $sql = 'SELECT * FROM lignefraisforfait WHERE idVisiteur=? AND mois=? AND idFraisForfait=?';
+        $resultat = $db->query($sql, [$_SESSION['id'], date('F'), $typeFrais]);
+        print_r($resultat);
+        return $resultat;
+    }
+
+
+
+
         // Instancie une fiche frais en état : Fiche créée, saisie en cours
     public function creationFicheFrais($id,$mois) {
             $db = db_connect();	
@@ -101,7 +132,7 @@ public function getBillets() {
         }
 
         // Insérer en base des Frais Hors Forfait saisis par un visiteur
-    public function horsFrais($id, $mois, $libelle, $date, $montant) {
+    public function addHF($id, $mois, $libelle, $date, $montant) {
             $db = db_connect();	
             $sql = 'INSERT INTO lignefraishorsforfait VALUES(0, ?, ?, ?, ?, ?)';
             $resultat = $db->query($sql, [$id,$mois,$libelle,$date,$montant]);
@@ -179,8 +210,14 @@ public function getBillets() {
             $resultat = $db->query($sql, [$_SESSION['id']]);
             $resultat = $resultat->getResult();
             return $resultat;
-
-
         }
+
+    public function clcFrais($id, $mois_actuel) {
+        $db = db_connect();
+        $sql = 'SELECT COUNT(id) as totalFrais FROM lignefraishorsforfait WHERE idVisiteur =? AND mois =?';
+        $resFrais = $db->query($sql, [$id, $mois_actuel]);
+        $resFrais = $resFrais->getResult();
+        return $resFrais;
     }
+}
 ?>

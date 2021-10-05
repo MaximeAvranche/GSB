@@ -9,6 +9,8 @@ use CodeIgniter\Controller;
 //  et suivre par des minuscules
 //=========================================================================================
 
+session_start();
+
 class Controleur extends Controller {
 
 //=====================================================================
@@ -35,23 +37,109 @@ public function index(){
 		$this->affichageFraisHF();
 	}*/
 	//vérifie si le bouton "connexion" a été préssé
-	if(isset($_POST['formconnexion'])){
+	
+
+		// On appelle la fonction pour afficher le calcul des frais dans le mois courant
+		//$resFrais = $modele->clcFrais($_SESSION['id'], $mois_actuel);
+		//$data['clcFraisMois'] = $resFrais;
+
+	// Redirection vers les différentes pages du site
+	if(isset($_GET['action'])) {
+		// Redirection vers "mes fiches"
+		if ($_GET['action'] == "afficherFF") {
+			$this->goAFF();
+		}
+		// Redirection vers "frais forfait"
+		if ($_GET['action'] == "fraisF") {
+			$this->goFF();
+		}
+		// Redirection vers "frais hors forfait"
+		if ($_GET['action'] == "fraisHF") {
+			$this->goHF();
+		}
+
+		if ($_GET['action'] == "deco") {
+			$this->formconnect();
+		}
+	}
+
+
+
+	// Le visiteur valide le formulaire de connexion
+	else if (isset($_POST['formconnexion'])) {
+		// On appelle la fonction qui permet de vérifier si les informations sont valides
 		$this->connect($_POST['login'], $_POST['password']);
 	}
 
-	else {
-		$this->accueil();
+	else if (isset($_POST['ajouter'])) {
+		$this->addHF();
 	}
+
+	else if (isset($_POST['modifier'])) {
+		$this->majFF();
+	}
+	// Par défaut, l'utilisateur est redirigé vers le formulaire de connexion
+	// Si rien n'est saisi, il est redirigé vers la vue connexion
+	else {
+			$this->formconnect();
+		}
+
 }
 
+	// Vue Mes frais (voir tous les frais saisis depuis le début de l'année)
+	public function goAFF() {
+		$modele = new \App\Models\Modele();
+		$mois_actuel = date('F');
+    $modele->FraisHFMensuel($mois_actuel);
+	}
 
-//======================================================
-// mène a l'écran de connexion
-//======================================================
+	// Vue Frais Forfait (ajouter des frais forfait)
+	public function goFF() {
+		$modele = new \App\Models\Modele();
+		$mois_actuel = date('F');
+    $modele->FraisHFMensuel($mois_actuel);
+   
+		echo view('vue_addFrais');
+	}
 
-public function accueil() {
-	echo view('vue_connexion');
-}
+	// Vue Frais Hors Forfait (ajouter des frais hors forfait)
+	public function goHF() {
+		$modele = new \App\Models\Modele();
+		$mois_actuel = date('F');
+    $modele->FraisHFMensuel($mois_actuel);
+
+    echo view('vue_addHF');
+
+	}
+
+	public function addHF() {
+		$modele = new \App\Models\Modele();
+		$modele->addHF($_SESSION['id'], date('F'), $_POST['libelle'], $_POST['date'], $_POST['montant']);
+
+		$resultat = $modele->clcFrais($_SESSION['id'], date('F'));
+		$data['fraisMois'] = $resultat[0]->totalFrais;
+
+			// Redirection vers le tableau de bord
+      echo view('vue_Accueil', $data);
+	}
+
+	public function majFF() {
+		$modele = new \App\Models\Modele();
+		$modele->fraisforfait($_POST['qte'], $_SESSION['id'], date('F'), $_POST['type']);
+		$resultatETP = $modele->recupFF("ETP");
+		$resultatKM = $modele->recupFF("KM");
+		$resultatNUI = $modele->recupFF("NUI");
+		$resultatREP = $modele->recupFF("REP");
+
+
+		//echo view('vue_addFrais');
+	}
+
+
+	// Vue affichant le formulaire de connexion
+	public function formconnect() {
+		echo view('vue_connexion.php');
+	}
 
 //a utilisé pour verifier si le mot de passe et l'identifiant sont correct
 public function connect($login,$mdp){
@@ -59,58 +147,32 @@ public function connect($login,$mdp){
 	$resultat = $modele->mdpVerif($login);
 	$message = ''; 
 		if ($mdp == $resultat[0]->mdp) {
-			session_start();
 			$_SESSION['id'] = $resultat[0]->id;
 			$_SESSION['login'] = $login;
 			$_SESSION['prenom'] = $resultat[0]->prenom;
 			$_SESSION['nom'] = $resultat[0]->nom;
 
+			$resultat = $modele->chercheFicheVisiteur($_SESSION['id'], date('F'));
+
+			if (!isset($resultat[0])) {
+				$modele->initialiseFicheFrais();
+			}
+
+		$resultat = $modele->clcFrais($_SESSION['id'], date('F'));
+		$data['fraisMois'] = $resultat[0]->totalFrais;
+
 			// Redirection vers le tableau de bord
-			echo view('vue_ajouterFraisForfait');
+      echo view('vue_Accueil', $data);
 			//$this->affichageFraisHF();
 		}
 
 		else {
 			$message = "Mauvais identifiant ou mot de passe !";
+			echo($message);
+			echo view('vue_connexion');
 		}
-
-	echo($message);
-
 }
 
-
-
-//affiche les frais HF du mois (n'affiche pas juste les frais de l'utilisateur mais les frais de TOUT LE MONDE, a changé plus tard)
-public function affichageFraisHF(){
-				  $modele = new \App\Models\Modele();
-
-				  // Si l'utilisateur n'est pas connecté alors, on le redirige vers la page de connexion
-				  if(!isset($_SESSION['id'])) {
-				  		return redirect()->to(base_url('vue_connexion'));
-				  }
-
-				  $mois_actuel = date('F');
-                  $affichage = $modele->FraisHFMensuel($mois_actuel);
-                  /**foreach($affichage as $donnees)
-                    { 
-
-											 echo "<br> date: ";
-                                             print_r($donnees->date) ;
-											 echo "<br> libelle: ";
-                                             print_r($donnees->libelle) ;
-											 echo "<br> montant: ";
-                                             print_r($donnees->montant) ;
-											 echo "€ <hr />";
-
-                        }**/
-          if($_POST) {
-          	if(isset($_POST['btn-deco'])) {
-          		session_destroy();
-          		return redirect()->to(base_url('vue_connexion'));
-          	}
-          }
-
-}
 
 //(en construction) affiche les frais du mois
 public function afficheFrais($id,$mois){

@@ -16,7 +16,7 @@
                         <div class="main-hotair">
                             <div class="content-wthree">
                                 <h2>Connexion</h2>
-                                <form method="POST">
+                                <form method="POST" action="index.php">
                                     <input type="text" class="text" name="login" placeholder="Identifiant" required="" autofocus>
                                     <input type="password" class="password" name="password" placeholder="Mot de passe" required="" autofocus>
                                     <button class="btn" name="formconnexion" type="submit">Connexion</button>
